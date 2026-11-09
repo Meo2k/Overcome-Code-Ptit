@@ -11,3 +11,11 @@ C++ project initialized by `tbuild` on Linux.
 ```bash
 ./build.sh
 ```
+
+
+
+# Learning-specific
+
+## Backtraking
+- The essence of backtracking is wrapped only in 3 words: try -> move forward -> undo (to try another). 
+
