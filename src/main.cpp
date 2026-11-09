@@ -1,36 +1,41 @@
-// Problem: You are given an integer n. List all numbers from 1 to n in binary format. 
+// Problem: You are given two integers n and k. List all subsets which include k elements taken from the set {1, 2, ... , n}. 
 
 
 #include <iostream>
-#include <vector> 
 
 
 using namespace std; 
 
-int n; 
-char x[100]; // x[n]
+int n, k;  
+int x[100]; // x[n]
+
 
 
 void print_solution()
 {
-    for (int i=1; i<=n; ++i) cout<<x[i]; 
-
-    cout<<"\n"; 
+    for (int i = 1; i <= k; ++i) cout << x[i] << " "; 
+    cout << "\n"; 
 }
 
-void Try(int k)
+void Try(int p)
 {
-    
-    for (auto c : {'0', '1'})
+    for (int i = x[p - 1] + 1; i <= n - k + p; ++i)
     {
-        x[k] = c;
-        if (k == n) print_solution(); 
-        else  Try(k+1); // move forward
-    
+        x[p] = i; 
+
+        if (p == k) 
+            print_solution(); 
+        else 
+            Try(p + 1); 
     }
+
 }
+
 int main(void) {
-    n = 3; 
+
+    if (!(cin >> n >> k)) return 0;  
+
+    x[0] = 0;
     Try(1); 
     return 0;
 }
